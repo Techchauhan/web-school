@@ -4,6 +4,7 @@ import User from "./pages/user/user";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
 import Adduser from "./pages/user/adduser/adduser";
+import AddStudent from "./pages/student/addstudent/addstudent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
@@ -20,6 +21,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/user/adduser" element={<Adduser />} />
+          <Route path="/add-students" element={<AddStudent />} ></Route>
+
+
+          {/* ADD ANY ROUTE ABOVE */}
           <Route path="/users" element={<User />} >
             <Route path=":userId" element={<Single />} />
             <Route path="new" element={<New inputs={userInputs} title="Add New User" />} />

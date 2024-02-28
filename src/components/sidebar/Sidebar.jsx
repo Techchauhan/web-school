@@ -4,11 +4,11 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
-import InsertChartIcon from "@mui/icons-material/InsertChart";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
+import GroupsIcon from '@mui/icons-material/Groups';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { Link } from "react-router-dom";
@@ -70,21 +70,19 @@ const Sidebar = () => {
             <LocalShippingIcon className="icon" />
             <span>Delivery</span>
           </li>
-          <p className="title">USEFUL</p>
-          <li>
-            <InsertChartIcon className="icon" />
-            <span>Stats</span>
-          </li>
-          <Link to="/stats" style={{ textDecoration: "none" }}>
+          <p className="title">Student</p>
+          <Link to="/add-students" style={{ textDecoration: "none" }}>
             <li>
-              <InsertChartIcon className="icon" />
-              <span>Stats</span>
+              <PersonAddAltIcon className="icon" />
+              <span>Add Student</span>
             </li>
           </Link>
-          <li>
-            <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
-          </li>
+          <Link to="/stats" style={{ textDecoration: "none" }}>
+            <li>
+              <GroupsIcon className="icon" />
+              <span>All Student</span>
+            </li>
+          </Link>
           <p className="title">SERVICE</p>
           <li>
             <SettingsSystemDaydreamOutlinedIcon className="icon" />
