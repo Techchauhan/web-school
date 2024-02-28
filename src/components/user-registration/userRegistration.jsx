@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import "./userRegistration.scss"
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { auth } from '../../firebaseConfig'; // Assuming you have initialized Firebase elsewhere
+import './userRegistration.scss';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -9,8 +12,9 @@ const RegistrationForm = () => {
     number: '',
     userType: 'admin' // Default user type
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,24 +23,45 @@ const RegistrationForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleRegistration = async (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to backend
-    console.log(formData);
-    // Reset form fields after submission
-    setFormData({
-      username: '',
-      email: '',
-      password: '',
-      number: '',
-      userType: 'admin'
-    });
+    setLoading(true);
+    try {
+      const { username, email, password, number, userType } = formData;
+      // Create user account
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      // Store additional user information in Firestore
+      const db = getFirestore();
+      await addDoc(collection(db, 'users'), {
+        uid: user.uid,
+        username,
+        email,
+        number,
+        userType,
+      });
+      console.log('User created:', user);
+      // Reset form fields after submission
+      setFormData({
+        username: '',
+        email: '',
+        password: '',
+        number: '',
+        userType: 'admin',
+      });
+      setError('');
+    } catch (error) {
+      console.error('Error creating user:', error);
+      setError(error.message || 'An error occurred');
+    }
+    setLoading(false);
   };
 
   return (
-    <div className="registration-form"> {/* Updated class name */}
-      <h2>Registration Form</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="registration-form">
+      <h2>Create Users</h2>
+      {error && <div className="error-message">{error}</div>}
+      <form onSubmit={handleRegistration}>
         <div>
           <label>Username:</label>
           <input
@@ -83,7 +108,7 @@ const RegistrationForm = () => {
             <option value="receptionist">Receptionist</option>
           </select>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" disabled={loading}>{loading ? 'Creating...' : 'Register'}</button>
       </form>
     </div>
   );
