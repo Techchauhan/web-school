@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./teacherRegistration.css"
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -7,7 +8,9 @@ import { auth } from "../../firebaseConfig";
 const TeacherAdd = () => {
   const [formData, setFormData] = useState({
     firstName: "",
+    lastName: "",
     email: "",
+    number: "",
     age: "",
     password: "",
     profilePicture: "", // Added profilePicture field to store image URL
@@ -64,6 +67,8 @@ const TeacherAdd = () => {
               case 'running':
                 console.log('Upload is running');
                 break;
+              default:
+                console.log('Unknown state');
             }
           }, 
           (error) => {
@@ -87,7 +92,9 @@ const TeacherAdd = () => {
                 // Reset the form data after successful submission
                 setFormData({
                   firstName: "",
+                  lastName: "",
                   email: "",
+                  number: "",
                   age: "",
                   password: "",
                   profilePicture: "", // Clear the profilePicture field
@@ -115,20 +122,35 @@ const TeacherAdd = () => {
     }
   };
 
-
-
-
   // <<<<____________________FORM AREA UI________________________>>>>>>
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Name:</label>
+          <label>First Name:</label>
           <input
             type="text"
             name="firstName"
             value={formData.firstName}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label>Mobile No:</label>
+          <input
+            type="number"
+            name="number"
+            value={formData.number}
             onChange={handleChange}
           />
         </div>

@@ -1,0 +1,50 @@
+.form-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ece9e9;
+    border-radius: 5px;
+    grid-gap: 20px; /* Increased gap between grid items */
+    grid-template-columns: repeat(2, 2); /* Display two fields in one row */
+  }
+  
+  .form-container form {
+    display: grid;
+    grid-gap: 10px;
+  }
+  
+  .form-container label {
+    font-weight: bold;
+  }
+  
+  .form-container input[type="text"],
+  .form-container input[type="number"],
+  .form-container input[type="email"],
+  .form-container input[type="password"],
+  .form-container input[type="file"] {
+    width: calc(100% - 16px); /* Adjusted width to accommodate padding */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-container button {
+    grid-column: span 2; /* Make the button span across two columns */
+    padding: 10px;
+    background-color: #2563df;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form-container button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  .form-container p {
+    margin-top: 10px;
+    color: red;
+  }
+  
