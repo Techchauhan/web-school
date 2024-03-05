@@ -1,23 +1,24 @@
+import React from 'react';
 import Sidebar from "../../../components/sidebar/Sidebar"
-import StudentRegistration from "../../../components/student-admission/student-admission"
+ 
 import Navbar from "../../../components/navbar/Navbar"
-const addStudent = ()=>{
+
+
+const AddStudent = () => {
+
+
     return (
         <div className="list">
-          <Sidebar/>
-          <div className="listContainer">
-            <Navbar/>
+            <Sidebar/>
+            <div className="listContainer">
+                <Navbar/>
 
-{/* AREA TO EDIT START */}
+                {/* UI for Student Admission Form */}
+                 
 
-      <StudentRegistration/>   
-
-{/* AREA TO EDIT END */}
-
-
-          </div>
+            </div>
         </div>
-      )
+    );
 }
 
-export default addStudent
+export default AddStudent;

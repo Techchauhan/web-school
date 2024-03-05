@@ -29,9 +29,9 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "order":
+    case "total-student":
       data = {
-        title: "ORDERS",
+        title: "Total Student",
         isMoney: false,
         link: "View all orders",
         icon: (

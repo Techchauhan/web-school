@@ -1,11 +1,11 @@
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import StoreIcon from "@mui/icons-material/Store";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import PersonAddDisabledIcon from '@mui/icons-material/PersonAddDisabled';
+import FlagIcon from '@mui/icons-material/Flag';
+import DeleteIcon from '@mui/icons-material/Delete';
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import GroupsIcon from '@mui/icons-material/Groups';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
@@ -35,68 +35,83 @@ const Sidebar = () => {
               <span>Dashboard</span>
             </li>
           </Link>
-          <p className="title">LISTS</p>
-          <li>
-            <PersonOutlineIcon className="icon" />
-            <span>Users</span>
-          </li>
-          <li>
-            <StoreIcon className="icon" />
-            <span>Products</span>
-          </li>
+
+          <p className="title">Student</p>
+          <Link to="/add-student" style={{ textDecoration: "none" }}>
+            <li>
+              <PersonAddAltIcon className="icon" />
+              <span>Add Student</span>
+            </li>
+          </Link>
+          <Link to="/all-student" style={{ textDecoration: "none" }}>
+            <li>
+              <GroupsIcon className="icon" />
+              <span>All Student</span>
+            </li>
+          </Link>
+          <Link to="/user/adduser" style={{ textDecoration: "none" }}>
+            <li>
+              <PersonAddDisabledIcon className="icon" />
+              <span>Disable Student</span>
+            </li>
+          </Link>
+          <Link to="/user/adduser" style={{ textDecoration: "none" }}>
+            <li>
+              <FlagIcon className="icon" />
+              <span>Student House</span>
+            </li>
+          </Link>
+          <Link to="/user/adduser" style={{ textDecoration: "none" }}>
+            <li>
+              <DeleteIcon className="icon" />
+              <span>Bulk Delete</span>
+            </li>
+          </Link>
+      
+
+          <p className="title">Teahcer</p>
+          <Link to="/add-teacher" style={{ textDecoration: "none" }}>
+            <li>
+              <PersonAddAltIcon className="icon" />
+              <span>Add Teacher</span>
+            </li>
+          </Link>
+          <Link to="/all-teacher" style={{ textDecoration: "none" }}>
+            <li>
+              <GroupsIcon className="icon" />
+              <span>All Teacher</span>
+            </li>
+          </Link>
+
+
+          <p className="title">User</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Users</span>
             </li>
           </Link>
-          <Link to="/adduser" style={{ textDecoration: "none" }}>
+          <Link to="/user/adduser" style={{ textDecoration: "none" }}>
             <li>
-              <PersonOutlineIcon className="icon" />
+              <PersonAddAltIcon className="icon" />
               <span>ADD Users</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
-            <li>
-              <StoreIcon className="icon" />
-              <span>Products</span>
-            </li>
-          </Link>
-          <li>
-            <CreditCardIcon className="icon" />
-            <span>Orders</span>
-          </li>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li>
-          <p className="title">Student</p>
-          <Link to="/add-students" style={{ textDecoration: "none" }}>
-            <li>
-              <PersonAddAltIcon className="icon" />
-              <span>Add Student</span>
-            </li>
-          </Link>
-          <Link to="/stats" style={{ textDecoration: "none" }}>
-            <li>
-              <GroupsIcon className="icon" />
-              <span>All Student</span>
-            </li>
-          </Link>
-          <p className="title">SERVICE</p>
+      
+          <p className="title">CBSE Examination</p>
           <li>
             <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
+            <span>Exam</span>
           </li>
           <li>
             <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
+            <span>Exam Shedule</span>
           </li>
           <li>
             <SettingsApplicationsIcon className="icon" />
-            <span>Settings</span>
+            <span>Print Marksheet</span>
           </li>
-          <p className="title">USER</p>
+          <p className="title">About You</p>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
