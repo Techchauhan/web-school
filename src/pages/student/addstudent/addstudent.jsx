@@ -6,7 +6,6 @@ import Navbar from "../../../components/navbar/Navbar"
 
 const AddStudent = () => {
 
-
     return (
         <div className="list">
             <Sidebar/>

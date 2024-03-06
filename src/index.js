@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import App from "./App";
 import { DarkModeContextProvider } from "./context/darkModeContext";
 
@@ -9,6 +11,7 @@ root.render(
   <React.StrictMode>
     <DarkModeContextProvider>
       <App />
+      <ToastContainer />
     </DarkModeContextProvider>
   </React.StrictMode>
 );

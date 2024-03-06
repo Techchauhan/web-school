@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from "../../../components/sidebar/Sidebar"
 import Navbar from "../../../components/navbar/Navbar"
-import TeacherRegistration from '../../../components/teacher-admission/teacherRegistration'
+import TeacherRegistration from '../../../components/teacher-registration/teacherRegistration'
 
 export default function AddTeacher() {
   return (

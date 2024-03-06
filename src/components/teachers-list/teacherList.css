@@ -1,0 +1,44 @@
+/* styles.css */
+
+.teacher-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left side */
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.search-fields {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+ justify-content: space-evenly;
+}
+
+.filter-input {
+  margin-right: 10px;
+}
+
+.button-fields {
+  display: flex;
+}
+
+.button-fields button {
+  margin-left: 10px;
+}
+
+/* Move button fields to the right */
+@media (min-width: 768px) {
+  .button-fields {
+    margin-left: 500px;
+  }
+}

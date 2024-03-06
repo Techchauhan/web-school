@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import "./teacherRegistration.css"
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { auth } from "../../firebaseConfig";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import "./teacherRegistration.css"
 
 const TeacherAdd = () => {
   const [formData, setFormData] = useState({
@@ -87,6 +89,7 @@ const TeacherAdd = () => {
               const teacherRef = doc(db, "teachers", uid);
               setDoc(teacherRef, {
                 ...formData,
+                userType: "teacher",
                 profilePicture: profilePictureUrl,
               }).then(() => {
                 // Reset the form data after successful submission
@@ -104,6 +107,7 @@ const TeacherAdd = () => {
                 setIsSubmitting(false);
                 setError(null); // Clear any previous errors
                 console.log("Data stored successfully!");
+                toast.success('Teacher registered successfully');
               }).catch((error) => {
                 console.error("Error storing data:", error.message);
                 setIsSubmitting(false);
@@ -117,7 +121,7 @@ const TeacherAdd = () => {
     } catch (error) {
       // Handle errors
       console.error("Error storing data:", error.message);
-      setError(error.message);
+      toast.error(error.message);
       setIsSubmitting(false);
     }
   };
